@@ -2,7 +2,7 @@
 {
     public enum Team
     {
-        PLayer,
+        Player,
         Enemy
     }
 }

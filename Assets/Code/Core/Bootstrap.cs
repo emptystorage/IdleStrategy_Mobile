@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Code.Core.Locator;
+using Code.Battle;
+using Code.Battle.Pool;
 
 namespace Code.Core
 {
@@ -26,7 +28,12 @@ namespace Code.Core
 
         private IEnumerator Start()
         {
-            World.Locator = new ImplementationLocator();
+            var locator = new ImplementationLocator();
+            locator.Add<BattleInformation>();
+            locator.Add<BattleResourceContainer>(new());
+            locator.Add<UnitPool>();
+
+            World.Locator = locator;
 
             yield return new WaitForSeconds(2);
 

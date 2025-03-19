@@ -27,5 +27,7 @@ namespace Code.Core
                 }
             }
         }
+
+        public static bool IsLived => _locator != null;
     }
 }
