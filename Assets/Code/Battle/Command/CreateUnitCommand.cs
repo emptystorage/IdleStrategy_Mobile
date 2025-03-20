@@ -13,7 +13,7 @@ namespace Code.Battle.Command
             var pool = World.Locator.Get<UnitPool>();
             var battleInfo = World.Locator.Get<BattleInformation>();
             var position = team == Team.Player ? battleInfo.PlayerCamp.transform.position : battleInfo.EnemyCamp.transform.position;
-            position += (Vector3)Random.insideUnitCircle;
+            position += (Vector3)Random.insideUnitCircle * 0.25f;
             var unit = pool.Spawn(prefab, position);
             unit.Team = team;
             unit.transform.localScale = team == Team.Player ? Vector3.one : new Vector3(-1,1,1);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795739bc4979485488f16f2827ecdd1e, type: 3}
   m_Name: Enemy_Melee_Unit_Dev
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 5833741187396796860, guid: 0e30e33fd99dc7344807bdd704b7cbca, type: 3}
+  _unitPrefab: {fileID: 7363359158667110637, guid: 70267a46ad0f445428ff08be95f74cb9, type: 3}
   _icon: {fileID: 0}
   _unitTeam: 1
   _health: 100

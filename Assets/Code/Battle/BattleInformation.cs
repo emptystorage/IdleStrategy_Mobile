@@ -55,6 +55,19 @@ namespace Code.Battle
         public void Remove(in Unit unit)
         {
             UnitsInBattle[unit.Team].Remove(unit);
+
+            if (unit is UnitCamp)
+            {
+                switch (unit.Team)
+                {
+                    case Team.Player:
+                        PlayerCamp = null;
+                        break;
+                    case Team.Enemy:
+                        EnemyCamp = null;
+                        break;
+                }
+            }
         }
 
         public bool TryGetTarget(in Unit unit, out Unit target)

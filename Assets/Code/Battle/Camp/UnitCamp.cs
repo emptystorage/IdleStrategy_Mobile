@@ -2,6 +2,7 @@
 
 using Code.Battle.Units;
 using Code.Battle.Command;
+using Code.Core;
 
 namespace Code.Battle.Camp
 {
@@ -14,10 +15,12 @@ namespace Code.Battle.Camp
 
         private void Start()
         {
+            if (!World.IsLived) return;
+
             Team = _team;
 
-            var cmd = new EnableUnitCampCommand();
-            cmd.Execute(this);
+            var battleInfo = World.Locator.Get<BattleInformation>();
+            battleInfo.Add(this);
 
             var widthValue = _team == Team.Player ? default : Screen.width;
             var heightValue = Screen.height / 2;
@@ -25,6 +28,14 @@ namespace Code.Battle.Camp
             positionInSafeArea.z = 0;
 
             transform.position = positionInSafeArea;
+        }
+
+        private void OnDestroy()
+        {
+            if (!World.IsLived) return;
+
+            var battleInfo = World.Locator.Get<BattleInformation>();
+            battleInfo.Add(this);
         }
     }
 }
